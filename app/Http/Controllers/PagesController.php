@@ -30,5 +30,14 @@ class PagesController extends Controller
                 'categories'=>$categories,
                 'links'=>$links
             ]);
+    } public function links(){
+        $categories = Category::paginate(10);
+        $links = Link::join('categories','categories.id','=','links.category_id')
+            ->get();
+        return view('welcome',
+            [
+                'categories'=>$categories,
+                'links'=>$links
+            ]);
     }
 }
