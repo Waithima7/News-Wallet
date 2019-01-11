@@ -17,4 +17,11 @@
         'modal_title'=>'LINK FORM',
         'modal_content'=>Form::autoForm(\App\Models\Core\Link::class,"users/links")
     ])
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            autoFillSelect('category_id','{{ url('users/categories/list?all=1') }}')
+        });
+
+    </script>
 @endsection

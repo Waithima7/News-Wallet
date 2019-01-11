@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Users\Links;
 
+use App\Repositories\FileRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -32,6 +33,10 @@ class LinksController extends Controller
                     if (Schema::hasColumn('links', 'user_id'))
                         $data['user_id'] = request()->user()->id;
                 }
+        $file = \request()->file('image');
+        $moved = FileRepository::move($file,true);
+        $data['image'] = $moved['path'];
+
         $this->autoSaveModel($data);
         return redirect()->back();
     }

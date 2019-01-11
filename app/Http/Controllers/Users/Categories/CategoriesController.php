@@ -42,7 +42,7 @@ class CategoriesController extends Controller
     public function listCategories(){
         $categories = Category::where([
             ['id','>',0]
-        ]);
+        ])->where('user_id','=',\request()->user()->id);
         if(\request('all'))
             return $categories->get();
         return SearchRepo::of($categories)

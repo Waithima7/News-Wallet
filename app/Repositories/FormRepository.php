@@ -37,80 +37,6 @@ class FormRepository
             'percentage'=>'percentage',
             'amount'=>'amount',
         ];
-        $selects_val['increase_after'] = [
-            '1'=>'Every Day',
-            '7'=>'Every Week',
-            '30'=>'Every Month'
-        ];
-        $selects_val['revision_reason'] = [
-            'plagiarism'=>'Plagiarism',
-            'out_of_topic'=>'Out of Topic',
-            'lack_of_references'=>'Lack of references or Citation',
-            'insufficient_word_count'=>'Insufficient Word Count',
-            'excess_words_word_count'=>'Excess Word Count',
-            'other'=>'Other'
-        ];
-        $selects_val['required'] = [
-            '0'=>'No',
-            '1'=>'Yes',
-        ];
-        $selects_val['gender'] = [
-            'male'=>'Male',
-            'female'=>'Female',
-        ];
-        $selects_val['is_sub'] = [
-            '0'=>'No',
-            '1'=>'Yes',
-        ];
-        $selects_val['in_show_room'] = [
-            '0'=>'No',
-            '1'=>'Yes',
-        ];
-        $selects_val['thumbnail'] = [
-            '0'=>'No',
-            '1'=>'Yes',
-        ];
-        $selects_val['preview_images'] = [
-            '0'=>'No',
-            '1'=>'Yes',
-        ];
-        $selects_val['downloadable'] = [
-            '0'=>'No',
-            '1'=>'Yes',
-        ];
-        $selects_val['schedule_deduction'] = [
-            'daily'=>'Daily',
-            'weekly'=>'Weekly',
-            'monthly'=>'Monthly'
-        ];
-        $selects_val['discount_type'] = [
-            'percent'=>'%',
-            'amount'=>'$',
-        ];
-        $selects_val['discount_type'] = [
-            'percent'=>'%',
-            'amount'=>'$',
-        ];
-        $selects_val['purchase_by'] = [
-            'btc'=>'BTC Amount',
-            'usd'=>'USD Amount',
-            'kes'=>'KES Amount',
-        ];
-        $selects_val['role'] = [
-            'stud'=>'Client',
-            'writer'=>'Writer',
-            'admin'=>'Admin'
-        ];
-        $selects_val['sender_identifier_type'] = [
-            '1'=>'1 - MSISDN',
-            '2'=>'2 – Till Number',
-            '4'=>'4 – Organization short code',
-        ];
-        $selects_val['receiver_identifier_type'] = [
-            '1'=>'1 - MSISDN',
-            '2'=>'2 – Till Number',
-            '4'=>'4 – Organization short code',
-        ];
         $selects_val['category'] = [];
         $selects_val['parent_category'] = [];
         $selects_val['file_type'] = ['Order File','Additional Material','Sources List','Revision Material','other'];
@@ -121,76 +47,12 @@ class FormRepository
             'multiselect'=>'MultiSelect',
         ];
 
-        if(in_array('how_long',$elements)){
-            $selects_val['how_long'] = [
-                '5'=>'5 Days',
-                '6'=>'1 Week',
-                '10'=>'10 Days',
-                '14'=>'2 Weeks',
-                '21'=>'3 Weeks',
-                '30'=>'1 Month',
-                '45'=>'1 Month & 2 Weeks',
-                '60'=>'2 Months',
-                '90'=>'3 Months',
-                '120'=>'4 Months',
-                '150'=>'5 Months'
-            ];
-        }
-        if(in_array('field_type',$elements)){
-            $selects_val['field_type'] = [
-                'text'=>'Text',
-                'long_text'=>'Long Text',
-                'select'=>'Select',
-                'multi_select'=>'Multi Select'
-            ];
-        }
-        if(in_array('is_required',$elements)){
-            $selects_val['is_required'] = [
-                '0'=>'No',
-                '1'=>'Yes',
-            ];
-        }
-        if(in_array('tracked',$elements)){
-            $selects_val['tracked'] = [
-                '0'=>'Not Tracked',
-                '1'=>'Tracked',
-            ];
-        }
-        if(in_array('tax_status',$elements)){
-            $selects_val['tax_status'] = [
-                'no_tax'=>'No Tax',
-                'tax_included'=>'Tax Included',
-                'plus_tax'=>'Plus Tax',
-            ];
-        }
         $selects_val['bid_enabled'] = [
             '0'=>'No',
             '1'=>'Yes',
         ];
 
         $passwords = ['password','password_confirmation'];
-        $selects['short_code_type'] = ['till_number','paybill'];
-        $selects['id_type'] = ['National ID','Military ID','Passport NO.'];
-        $selects['command_id'] = ['SalaryPayment','BusinessPayment','PromotionPayment','BusinessPayBill','BusinessBuyGoods','DisburseFundsToBusiness','BusinessToBusinessTransfer','MerchantToMerchantTransfer','BusinessTransferFromMMFToUtility'];
-        $selects['environment'] = ['production','sandbox'];
-        $selects['webhook_for'] = ["b2c","c2b","b2b","lipa_na_mpesa_online"];
-        $selects['shortcode_for'] = ["b2c","c2b","b2b","lipa_na_mpesa_online"];
-        $selects['rate_type'] = ['percent','amount'];
-        $selects['account_type'] = ['mpesa','airtel_money','equity_account','equitel'];
-        $selects['deposit_account_type'] = ['mpesa','bank deposit'];
-        $selects['rental_period'] = ['monthly','weekly','daily'];
-        $selects['address_type'] = ['billing','shipping'];
-        $selects['late_fee_type'] = ['percent','fixed'];
-        $selects['charge_type'] = ['percent','fixed'];
-        $selects['late_fee_period'] = ['hourly','daily','weekly','monthly'];
-        $selects['currency'] = ['USD','KES'];
-        $selects['commission_plan'] = ['once','recurring'];
-        $selects['user_type'] = ['Employed','Self-employed','Organized Groups','sponsored'];
-        $selects['employer_type'] = ['Employed','Organized Groups','sponsored'];
-        $selects['keen'] = ['Father','Mother','Brother','Neighbour','Friend'];
-        $selects['commission_type'] = ['percent','fixed'];
-        $selects['register_as'] = ['member','agent','joint'];
-        $selects['region'] = ['central','coast','eastern','nairobi','north eastern','nyanza','rift valley','western'];
 //            $selects[''] =
         $class = 'ajax-post';
         $enctype = '';
@@ -243,6 +105,7 @@ class FormRepository
         $input_masks = [];
         $input_masks['start_time'] = '00:00:00';
         $no = 0;
+
         foreach($elements as $element_data=>$element){
             if(strpos($element_data,'hidden_') === false && strpos($element,'hidden_') === false){
 

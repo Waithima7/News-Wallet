@@ -19,7 +19,7 @@ class CreateLinksTable extends Migration
 			$table->string('author');
 			$table->string('website');
 			$table->longText('description');
-			$table->integer('category');
+			$table->integer('category_id');
 			$table->string('image');
             $table->integer('user_id');
             $table->timestamps();
