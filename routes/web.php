@@ -2,6 +2,7 @@
 Auth::routes();
 Route::get('/', 'PagesController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('View-Categories', 'PagesController@viewcategory');
 
 Route::group(['middleware'=>['auth','web','member']],function(){
 
